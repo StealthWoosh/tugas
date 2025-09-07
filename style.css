@@ -173,3 +173,99 @@
 
         .pengurus {
         }
+
+        .wrap{
+  display:flex;
+  justify-content: center;
+  width: min(1100px, 96%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding:18px;
+  border-radius:14px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255,255,255,0.03);
+  align-items:center;
+}
+
+/* the horizontal row that can scroll if small screen */
+.pill-row{
+  display:flex;
+  gap:var(--pill-gap);
+  align-items:center;
+  padding:8px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+/* individual pill/button */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border:1px solid var(--border);
+  padding: var(--pill-padding);
+  margin-right: 30px;
+  border-radius:999px;
+  cursor:pointer;
+  color:var(--muted);
+  font-weight:600;
+  font-size:14px;
+  line-height:1;
+  transition: transform .14s ease, background .12s ease, color .12s ease, box-shadow .12s ease;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02) inset;
+  user-select:none;
+}
+
+/* icon left inside pill */
+.pill .icon{
+  display:inline-grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.02);
+  color:inherit;
+  font-size:14px;
+  flex:0 0 28px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+
+/* visible label */
+.pill .label{
+  color: #e6e7e8;
+  font-size:13px;
+  letter-spacing:0.2px;
+}
+
+/* hover / focus styles */
+.pill:hover, .pill:focus{
+  transform: translateY(-3px);
+  color: #ffffff;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+  outline: none;
+}
+
+/* active style for click */
+.pill:active{
+  transform: translateY(0);
+}
+
+/* make scrollbar subtle on WebKit */
+.pill-row::-webkit-scrollbar{height:8px}
+.pill-row::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.03);
+  border-radius:999px;
+}
+
+/* responsive: smaller pills on small screens */
+@media (max-width:480px){
+  .pill { padding:8px 10px; gap:8px; }
+  .pill .label{ font-size:12px }
+}
+
+/* small visual variants to resemble different icon colors */
+.pill[title="CSS"] .icon{ background: linear-gradient(180deg,#2c7be5,#1a5fb8); border-radius:6px }
+.pill[title="Dart"] .icon{ background: linear-gradient(180deg,#00b4ff,#006fb3); border-radius:6px }
+.pill[title="HTML5"] .icon{ background: linear-gradient(180deg,#ff6b44,#d94a22); border-radius:6px }
+.pill[title="Node.js"] .icon{ background: linear-gradient(180deg,#6cc24a,#2e8b2e); border-radius:6px }
+.pill[title="TypeScript"] .icon{ background: linear-gradient(180deg,#2b78d6,#165a9a); border-radius:6px }
